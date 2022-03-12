@@ -30,23 +30,23 @@ class HandleCollisionsAction(Action):
             self._handle_segment_collision(cast) ## change to interactino with other player
             self._handle_game_over(cast)
 
-    def _handle_food_collision(self, cast):
+    # def _handle_food_collision(self, cast):
         ### will not be needed as food is not involved in game
-        """Updates the score nd moves the food if the snake collides with the food.
+        # """Updates the score nd moves the food if the snake collides with the food.
         
-        Args:
-            cast (Cast): The cast of Actors in the game.
-        """
-        score = cast.get_first_actor("scores")
-        food = cast.get_first_actor("foods")
-        snake = cast.get_first_actor("snakes")
-        head = snake.get_head()
+        # Args:
+        #     cast (Cast): The cast of Actors in the game.
+        # """
+        # score = cast.get_first_actor("scores")
+        # food = cast.get_first_actor("foods")
+        # snake = cast.get_first_actor("snakes")
+        # head = snake.get_head()
 
-        if head.get_position().equals(food.get_position()):
-            points = food.get_points()
-            snake.grow_tail(points)
-            score.add_points(points)
-            food.reset()
+        # if head.get_position().equals(food.get_position()):
+        #     points = food.get_points()
+        #     snake.grow_tail(points)
+        #     score.add_points(points)
+        #     food.reset()
     
     def _handle_segment_collision(self, cast):
         ## can be changed from interaction with own tail to interaction with opposing player
@@ -55,7 +55,7 @@ class HandleCollisionsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        snake = cast.get_first_actor("snakes")
+        snake = cast.get_first_actor("snake")
         head = snake.get_segments()[0]
         segments = snake.get_segments()[1:]
         
